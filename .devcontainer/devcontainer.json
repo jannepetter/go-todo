@@ -1,0 +1,19 @@
+{
+    "name": "Go Development",
+    "dockerFile": "../dev.Dockerfile",
+    "forwardPorts": [8080],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "golang.Go",
+                "mongodb.mongodb-vscode",
+                "rangav.vscode-thunder-client"
+            ]
+        }
+    },
+    "runArgs": ["--name", "dev_kontti"],
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+      ],
+    "postStartCommand": "make start_db"
+  }
